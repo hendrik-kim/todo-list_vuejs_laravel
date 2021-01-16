@@ -12,7 +12,7 @@
 <script>
 export default {
     name: "AddItemForm",
-    data() {
+    data: function() {
         return {
             item: {
                 name: ""
@@ -32,7 +32,8 @@ export default {
                 })
                 .then(res => {
                     if (res.status == 201) {
-                        this.item.name == "";
+                        this.item.name = "";
+                        this.$emit("reloadList");
                     }
                 })
                 .catch(err => {
